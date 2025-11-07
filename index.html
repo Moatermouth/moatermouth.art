@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Moatermouth | Visual Development, Illustration & Animation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Moatermouth (alias of Anjel Robinson) — Visual Development Artist, Illustrator & Animator.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e0f2fe, #fdf2ff, #fecdd3);
+      color: #0f172a;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid #f9a8d4;
+      background: #fee2ff;
+    }
+
+    .site-title {
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .site-sub {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .nav-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 1px;
+      background-color: #0f172a;
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* LAYOUT */
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 30px 18px 60px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .subtle-text {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* HERO */
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(148, 163, 184, 0.45);
+      border: 1px solid rgba(191, 219, 254, 0.95);
+    }
+
+    .hero-tagline {
+      font-size: 14px;
+      color: #4b5563;
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 16px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .hero-image-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: 0 12px 30px rgba(148, 163, 184, 0.45);
+      border: 1px solid rgba(191, 219, 254, 0.95);
+    }
+
+    .hero-image-card img {
+      border-radius: 14px;
+    }
+
+    /* BUTTONS / WAVE EFFECT */
+
+    .btn,
+    .social-chip,
+    .resume-download {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .btn {
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #60a5fa, #f472b6);
+      color: #ffffff;
+      box-shadow: 0 10px 20px rgba(129, 140, 248, 0.55);
+    }
+
+    .btn-ghost {
+      background: #ffffff;
+      border: 1px solid #cbd5f5;
+      color: #0f172a;
+    }
+
+    .wave-btn .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      background-color: rgba(255, 255, 255, 0.6);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* PORTFOLIO COLLECTIONS (BIG CARDS) */
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .collection-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 10px 24px rgba(148, 163, 184, 0.45);
+      border: 1px solid rgba(191, 219, 254, 0.95);
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+      display: block;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(129, 140, 248, 0.6);
+      border-color: #a5b4fc;
+    }
+
+    .collection-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .collection-title {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .collection-desc {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 8px;
+    }
+
+    .collection-link {
+      font-size: 12px;
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    /* RESUME SECTION */
+
+    .resume-section {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 16px rgba(148, 163, 184, 0.35);
+      font-size: 14px;
+    }
+
+    .resume-section p {
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .resume-section strong {
+      color: #111827;
+    }
+
+    .resume-download {
+      background: linear-gradient(135deg, #60a5fa, #f472b6);
+      color: #ffffff;
+      padding: 7px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      box-shadow: 0 8px 18px rgba(129, 140, 248, 0.55);
+    }
+
+    /* ABOUT + CONTACT SECTION */
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 16px rgba(148, 163, 184, 0.35);
+      font-size: 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-box p {
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    .contact-emails a {
+      color: #2563eb;
+    }
+
+    .social-links {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .social-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+      font-size: 13px;
+    }
+
+    .social-chip span.icon {
+      font-size: 14px;
+    }
+
+    .contact-photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-photo img {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 999px;
+      border: 3px solid #f9a8d4;
+      box-shadow: 0 10px 24px rgba(148,163,184,0.5);
+    }
+
+    .contact-form {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 420px;
+    }
+
+    .contact-form label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 7px 9px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 13px;
+      font-family: inherit;
+      background: #f9fafb;
+    }
+
+    .contact-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 1px #60a5fa33;
+      background: #ffffff;
+    }
+
+    .contact-form button {
+      align-self: flex-start;
+      margin-top: 4px;
+      background: linear-gradient(135deg,#60a5fa,#f472b6);
+      color:#fff;
+      padding:8px 16px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-size:13px;
+    }
+
+    @media (max-width: 800px) {
+      .contact-box {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-photo {
+        order: -1;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px 18px 24px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="#top">
+          <img src="Anjel Logo.jpg" alt="Anjel logo" class="logo-img" />
+        </a>
+        <div>
+          <div class="site-title">MOATERMOUTH</div>
+          <div class="site-sub">alias of Anjel Robinson</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#top">Home</a>
+          <a href="#portfolio">Work</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">About + Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <a id="top"></a>
+
+    <!-- HERO with Get To Know Me drawing -->
+    <section>
+      <div class="hero-layout">
+        <div class="hero-card">
+          <h1>Story &amp; Visual Development Portfolio</h1>
+          <p class="subtle-text">
+            Visual Development Artist · Illustrator · Animator
+          </p>
+          <p class="hero-tagline">
+            Moatermouth is the alias of <strong>Anjel Robinson</strong>, a visual development artist, illustrator,
+            and animator creating expressive, character-driven worlds through color, design, and storytelling.
+          </p>
+          <p class="hero-meta">
+            UC DAAP · Games &amp; Animation BFA · Class of <strong>2027</strong>
+          </p>
+          <div class="hero-tags">
+            <span class="pill">Visual Development</span>
+            <span class="pill">Illustration</span>
+            <span class="pill">Character Work</span>
+            <span class="pill">Animation</span>
+          </div>
+          <div class="hero-buttons">
+            <button class="btn btn-primary wave-btn" data-target="#portfolio">
+              View Work
+            </button>
+            <button class="btn btn-ghost wave-btn" data-target="#contact">
+              About + Contact
+            </button>
+          </div>
+          <p class="hero-note">
+            Based in Cincinnati, OH · open to internships, co-op, and select freelance projects.
+          </p>
+        </div>
+
+        <!-- Get To Know Me illustration -->
+        <div class="hero-image-card">
+          <img src="get_to_know_me_club_copy.jpg" alt="Get to know me illustration of Anjel" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO COLLECTIONS (BIG CARDS) -->
+    <section id="portfolio">
+      <div class="section-header">
+        <h2>Final Portfolio Collections</h2>
+        <p class="section-subtitle">
+          A curated selection of projects across branding, illustration, fine art, print, and animation.
+        </p>
+      </div>
+
+      <div class="collection-grid">
+        <!-- Design & Branding -->
+        <a class="collection-card" href="branding.html">
+          <div class="collection-label">Collection</div>
+          <div class="collection-title">Design &amp; Branding</div>
+          <p class="collection-desc">
+            Logos, marks, and identity design that focus on clear visual storytelling and cohesive branding.
+          </p>
+          <span class="collection-link">View Design &amp; Branding →</span>
+        </a>
+
+        <!-- Illustration & Visual Development -->
+        <a class="collection-card" href="illustration.html">
+          <div class="collection-label">Collection</div>
+          <div class="collection-title">Illustration &amp; Visual Development</div>
+          <p class="collection-desc">
+            Character-focused illustrations and visual development pieces exploring personality, mood, and worldbuilding.
+          </p>
+          <span class="collection-link">View Illustration &amp; Visual Development →</span>
+        </a>
+
+        <!-- Fine Art & Visual Studies -->
+        <a class="collection-card" href="fineart.html">
+          <div class="collection-label">Collection</div>
+          <div class="collection-title">Fine Art &amp; Visual Studies</div>
+          <p class="collection-desc">
+            Portraits and experimental fine art studies that explore light, form, identity, and emotional atmosphere.
+          </p>
+          <span class="collection-link">View Fine Art &amp; Visual Studies →</span>
+        </a>
+
+        <!-- Print & Promotional Design -->
+        <a class="collection-card" href="print.html">
+          <div class="collection-label">Collection</div>
+          <div class="collection-title">Print &amp; Promotional Design</div>
+          <p class="collection-desc">
+            Posters, book covers, and promotional designs that merge illustration with strong graphic composition.
+          </p>
+          <span class="collection-link">View Print &amp; Promotional Design →</span>
+        </a>
+
+        <!-- Animation Reel -->
+        <a class="collection-card" href="animation.html">
+          <div class="collection-label">Collection</div>
+          <div class="collection-title">Animation Reel</div>
+          <p class="collection-desc">
+            Animation is how I bring my drawings to life — a collection of different animation clips gathered into one reel.
+          </p>
+          <span class="collection-link">View Animation Reel →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="resume-section">
+      <h2>Resume</h2>
+      <p>
+        <strong>Student &amp; Visual Development Artist</strong><br>
+        BFA in Games &amp; Animation, University of Cincinnati (DAAP) · Screenwriting Certificate · Class of <strong>2027</strong>
+      </p>
+      <p>
+        Experience in mural work, teaching, customer service, and visual storytelling through illustration and animation.
+      </p>
+      <a class="resume-download wave-btn" href="Robinson_Anjel_Final_Resume.pdf" target="_blank">
+        📄 View Full Resume (PDF)
+      </a>
+    </section>
+
+    <!-- ABOUT ME + CONTACT -->
+    <section id="contact" class="contact-box">
+      <div>
+        <h2>About Me + Contact</h2>
+        <p>
+          Hi, I'm <strong>Anjel Robinson</strong> — a visual development artist and animator based in Cincinnati, Ohio.
+          I’m currently studying <strong>Games &amp; Animation at the University of Cincinnati (Class of 2027)</strong>.
+          I love animating, drawing, and sharing creativity through teaching.
+        </p>
+        <p>
+          My work focuses on bringing characters to life through expressive movement, color, and storytelling.
+          I’m open to internships, co-ops, commissions, and collaborative projects — feel free to reach out!
+        </p>
+
+        <div class="contact-emails">
+          <p>
+            <strong>School Email:</strong>
+            <a href="mailto:Robin5a6@mail.uc.edu">Robin5a6@mail.uc.edu</a>
+          </p>
+          <p>
+            <strong>Art Email:</strong>
+            <a href="mailto:moatermouthart@gmail.com">moatermouthart@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="social-links">
+          <a class="social-chip wave-btn" href="https://www.instagram.com/moatermouth/" target="_blank" rel="noreferrer">
+            <span class="icon">📸</span> Instagram
+          </a>
+          <a class="social-chip wave-btn" href="https://www.youtube.com/@moatermouth7141" target="_blank" rel="noreferrer">
+            <span class="icon">▶</span> YouTube
+          </a>
+          <a class="social-chip wave-btn" href="https://www.linkedin.com/in/anjel-rob/" target="_blank" rel="noreferrer">
+            <span class="icon">in</span> LinkedIn
+          </a>
+          <a class="social-chip wave-btn" href="https://uc.joinhandshake.com/profiles/anjel-rob" target="_blank" rel="noreferrer">
+            <span class="icon">🤝</span> Handshake
+          </a>
+        </div>
+
+        <!-- Contact form -->
+        <form class="contact-form" action="mailto:Robin5a6@mail.uc.edu" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input id="name" name="Name" type="text" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="Email" type="email" placeholder="your@email.com" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" placeholder="Tell me a bit about your project or question." required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-photo">
+        <img src="Anjel Headshot.jpg" alt="Photo of Anjel Robinson" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Moatermouth · Portfolio of Anjel Robinson.
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function smoothScrollTo(selector) {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+
+    // smooth scroll for header nav
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        smoothScrollTo(link.getAttribute("href"));
+      });
+    });
+
+    // wave / ripple effect
+    document.querySelectorAll(".wave-btn").forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        const rect = this.getBoundingClientRect();
+        const ripple = document.createElement("span");
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + "px";
+        ripple.style.left = (e.clientX - rect.left - size / 2) + "px";
+        ripple.style.top = (e.clientY - rect.top - size / 2) + "px";
+        ripple.classList.add("ripple");
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+
+        const target = this.getAttribute("data-target");
+        if (target && target.startsWith("#")) {
+          smoothScrollTo(target);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
